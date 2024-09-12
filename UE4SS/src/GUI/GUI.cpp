@@ -484,7 +484,10 @@ namespace RC::GUI
 
         ImFontConfig font_cfg;
         font_cfg.FontDataOwnedByAtlas = false; // if true it will try to free memory and fail
-        io.Fonts->AddFontFromMemoryTTF(Roboto, sizeof(Roboto), base_font_size, &font_cfg);
+        // io.Fonts->AddFontFromMemoryTTF(Roboto, sizeof(Roboto), base_font_size, &font_cfg);
+        // Support for chinese log
+        // TODO: Adding Configuration Items:  .Debug.UseChineseFont
+        io.Fonts->AddFontFromFileTTF("C:/Windows/Fonts/msyh.ttc", base_font_size, NULL, io.Fonts->GetGlyphRangesChineseFull());
 
         float icon_font_size = base_font_size * 2.0f / 3.0f; // FontAwesome fonts need to have their sizes reduced;
         static const ImWchar icons_ranges[] = {ICON_MIN_FA, ICON_MAX_16_FA, 0};
